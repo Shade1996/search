@@ -8,4 +8,5 @@ export const indexData = proxy({ title: "", description:"", image:"", url:"" , c
 
 export const tagActive = proxy({ value:false})
 
-export const searchState = proxy({ value:"" as "Loading"|"Nothing"| "Error"})
+export const searchState = proxy({ value:"" as "Loading"|"Nothing"| "Error"|"Response"})
+
