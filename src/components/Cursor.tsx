@@ -7,7 +7,7 @@ const useEvent = (eventName: any, cb: (e: MouseEvent) => void) => {
         return () => {
             document.removeEventListener(eventName, cb)
         }
-    }, [])
+    }, [cb])
 }
 
 export default function Cursor() {
