@@ -16,7 +16,7 @@ change time get timeout state
 6. 打包成小的app,安装在系统上,配置快捷键,随时打开使用
 
 ### 遇到的问题
-之前没有接触过单选的逻辑,不太清楚该怎么实现,原本是想使用input radio来实现,然后修改css样式. 以及尝试用现成组件库再修改样式. 然后发现好像不太行而且好麻烦,后来才发现这个逻辑并不是很难.😅
+之前没太接触过单选的逻辑,不太清楚该怎么实现,原本是想使用input radio来实现,然后修改css样式. 以及尝试用现成组件库再修改样式. 然后发现好像不太行而且好麻烦,后来才发现这个逻辑并不是很难.😅
 
 ***
 
@@ -26,3 +26,6 @@ simple yarn install && yarn start
 直接yarn install 和yarn start 就可以了 
 
 修改getError 和 time变量分别获得error 和timeout状态
+
+***
+Github地址:https://github.com/Shade1996/search
