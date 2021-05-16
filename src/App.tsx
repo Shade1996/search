@@ -4,7 +4,7 @@ import { useSnapshot } from 'valtio'
 import Chip from './components/Chip'
 import SearchBox from './components/SearchBox'
 import SearchIteam from './components/SearchIteam'
-import { indexData, result, searchKeyWord, searchState } from './state'
+import { result, searchKeyWord, searchState } from './state'
 import Cursor from './components/Cursor'
 import Loading from './components/Loading'
 import { useSpring, animated, config } from 'react-spring'
@@ -40,7 +40,6 @@ function Scrolling() {
 	)
   }
 export default function App() {
-	useSnapshot(indexData)
 	useSnapshot(searchKeyWord)
 	useSnapshot(result)
 	useSnapshot(searchState)
@@ -51,9 +50,7 @@ export default function App() {
 
 	function useOutsideAlerter(ref:RefObject<HTMLDivElement>) {
 		useEffect(() => {
-			/**
-			 * Alert if clicked on outside of element
-			 */
+			
 			function handleClickOutside(event:any) {
 				if (ref.current && !ref.current.contains(event.target)) {
 					setActiveIndex(4)
@@ -117,29 +114,27 @@ export default function App() {
 
 	
 	return (
-		<div className="h-screen w-screen" style={{ backgroundColor : "#EDF2F7"}} onClick={(e) => {
-			
-			}}>
+		<div className="h-screen w-screen" style={{ backgroundColor : "#EDF2F7"}} >
 			<div className="absolute box" ref={wrapperRef}>
 				<div className="box-part1 flex flex-col items-center space-y-4">
 					<SearchBox outline={searchState.value === "Error" || searchState.value === "Timeout"}/>
 					<div className="flex space-x-4 w-full">
-							<Chip tag="Language" active={activeIndex === 0} onClick={()=> {
-								setActiveIndex(0)
-								searchKeyWord.value = "Language"
-								}} />
-							<Chip tag="Design" active={activeIndex === 1} onClick={()=> {
-								setActiveIndex(1)
-								searchKeyWord.value = "Design"
-								}}/>
-							<Chip tag="Build" active={activeIndex === 2}  onClick={()=> {
-								setActiveIndex(2)
-								searchKeyWord.value = "Build"
-								}}/>
-							<Chip tag="Cloud" active={activeIndex === 3} onClick={()=> {
-								setActiveIndex(3)
-								searchKeyWord.value = "Cloud"
-								}}/>
+						<Chip tag="Language" active={activeIndex === 0} onClick={()=> {
+						 setActiveIndex(0)
+						 searchKeyWord.value = "Language"
+							}} />
+						<Chip tag="Design" active={activeIndex === 1} onClick={()=> {
+						 setActiveIndex(1)
+						 searchKeyWord.value = "Design"
+							}}/>
+						<Chip tag="Build" active={activeIndex === 2}  onClick={()=> {
+						 setActiveIndex(2)
+						 searchKeyWord.value = "Build"
+							}}/>
+						<Chip tag="Cloud" active={activeIndex === 3} onClick={()=> {
+						 setActiveIndex(3)
+						 searchKeyWord.value = "Cloud"
+							}}/>
 					</div>
 					<div className={`h-full w-full  ${result.value.length > 4 ? "overflow-y-hidden" :""}`}>
 						<Scrolling />
@@ -153,4 +148,3 @@ export default function App() {
 		</div>
 	)
 }
-
