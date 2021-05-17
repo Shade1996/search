@@ -3,11 +3,10 @@ import React, { useEffect, useState } from 'react'
 const useEvent = (eventName: any, cb: (e: MouseEvent) => void) => {
     useEffect(() => {
         document.addEventListener(eventName, cb)
-
         return () => {
             document.removeEventListener(eventName, cb)
         }
-    }, [cb])
+    }, [])
 }
 
 export default function Cursor() {
